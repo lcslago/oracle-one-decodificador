@@ -8,8 +8,6 @@ let encryptButton = document.querySelector(".encryption-button");
 let decryptButton = document.querySelector(".decryption-button");
 let copyButton = document.querySelector(".copy-button");
 
-
-
 encryptButton.addEventListener("click", () => {
     plainText = normalText.value;
     encrypt();
@@ -19,7 +17,6 @@ decryptButton.addEventListener("click", () => {
     plainText = normalText.value;
     decrypt();
 })
-
 
 function encrypt() {
     for (let i = 0; i < letters.length; i++) {
@@ -38,24 +35,45 @@ function decrypt() {
 
 }
 
+// >>>>>>>>>>>> CRIAR UMA FUNÇÃO QUE IMPEÇA O USO DE PALAVRAS SEM VOGAIS <<<<<<<<<<<<<
+
+const textOutput = document.querySelector(".main__output-text");
+
 function checkSpellEncode() {
-    let teste = document.querySelector(".alerta");
+    const error = document.querySelector(".invalid-character");
+    const result = document.querySelector(".main__decryption-area");
+
+    const warning = document.querySelector(".main__output-warning");
+
     const charactersFilter = new RegExp(/[^a-z ]/, 'g');
 
     if (charactersFilter.test(plainText)) {
-        teste.innerHTML = "não pode";
-        teste.style.display = "block";
+        warning.style.display = "none";
+        result.style.display = "none";
+        error.style.display = "flex";
+    } else if (plainText === "") {
+        result.style.display = "none";
+        error.style.display = "none";
+        warning.style.display = "flex";
     } else {
-        teste.innerHTML = plainText;
-        teste.style.display = "block";
+        warning.style.display = "none";
+        error.style.display = "none";
+        result.style.display = "flex";
+        textOutput.innerHTML = plainText;
         copyText();
     }
+    window.scrollBy({
+        top: window.innerHeight,
+        behavior: 'smooth'
+    });
 }
 
 function copyText() {
-    let teste = document.querySelector(".alerta");
+    const copiedText = document.querySelector(".text--copied");
     copyButton.addEventListener("click", () => {
-        navigator.clipboard.writeText(teste.innerHTML);
-        alert("texto copiado");
+        copiedText.style.display = "block";
+        copiedText.innerHTML = "Texto copiado!";
+        navigator.clipboard.writeText(textOutput.innerHTML);
+
     })
 }

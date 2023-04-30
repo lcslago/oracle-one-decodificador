@@ -5,18 +5,58 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="/assets/img/Vector.png">
+    <link rel="stylesheet" href="/styles/reset.css">
+    <link rel="stylesheet" href="/styles/style.css">
     <title>Decodificador de Texto</title>
 </head>
 
 <body>
-    <textarea id="text-area" cols="30" rows="10" placeholder="Digite aqui seu texto"></textarea>
-    <input type="submit" value="Criptografar" class="encryption-button">
-    <input type="submit" value="Descriptografar" class="decryption-button">
-    <button class="copy-button">Copiar</button>
+    <header>
+        <img src="/assets/img/Vector.png" alt="logo da alura" class="header__logo">
+    </header>
+    <main>
+        <textarea class="main__text-area" id="text-area" cols="30" rows="10" placeholder="Digite seu texto"></textarea>
+        <div class="main__warning">
+            <img src="/assets/img/Warning.svg" alt="sinal de alerta">
+            <p>Apenas letras minúsculas e sem acento.</p>
+        </div>
 
-    <script src="./encryption.js"></script>
+        <div class="main__buttons">
+            <input type="submit" value="Criptografar" class="encryption-button">
+            <input type="submit" value="Descriptografar" class="decryption-button">
+        </div>
 
-    <h2 class="alerta" style="display: none;">teste</h2>
+        <div class="main__output-warning">
+            <h3 class="warning">Nenhuma mensagem encontrada</h3>
+            <p class="warning">Digite um texto que você deseja criptografar ou descriptografar.</p>
+        </div>
+
+        <div class="invalid-character main__output-warning">
+            <h3 class="warning">Caractere Inválido</h3>
+            <p class="warning">Apenas letras minúsculas e sem acento.</p>
+        </div>
+
+        <div class="text--copied">
+            <span></span>
+        </div>
+
+        <div class="main__decryption-area">
+            <p class="main__output-text">
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Orci montes, sit et diam risus scelerisque
+                vitae est. Tortor
+                maecenas nunc ut laoreet. Eget diam mauris quam quisque ut eget fringilla sit elit. Libero, sodales duis
+                fames id diam
+                feugiat aliquet non egestas.
+            </p>
+            <button class="copy-button">Copiar</button>
+        </div>
+
+
+    </main>
+    <footer></footer>
+
+    <script src="/scripts/encryption.js"></script>
 </body>
 
 </html>
