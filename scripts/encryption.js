@@ -35,7 +35,10 @@ function decrypt() {
 
 }
 
-// >>>>>>>>>>>> CRIAR UMA FUNÇÃO QUE IMPEÇA O USO DE PALAVRAS SEM VOGAIS <<<<<<<<<<<<<
+// CRIAR UMA FUNÇÃO QUE IMPEÇA O USO DE PALAVRAS SEM VOGAIS 
+// TENTAR FAZER O OUTPUT SER VISUALMENTE IDENTICO AO INPUT 
+// CRIAR UMA FUNÇÃO QUE PERMITA APENAS CARACTERES UTF-8
+// CRIAR UMA FUNÇÃO QUE VERIFICA SE O TEXTO CONTÉM APENAS ESPAÇOS OU ENTERS
 
 const textOutput = document.querySelector(".main__output-text");
 
@@ -45,7 +48,7 @@ function checkSpellEncode() {
 
     const warning = document.querySelector(".main__output-warning");
 
-    const charactersFilter = new RegExp(/[^a-z ]/, 'g');
+    const charactersFilter = new RegExp(/[^a-z /\n/]/, 'g');
 
     if (charactersFilter.test(plainText)) {
         warning.style.display = "none";
@@ -63,16 +66,21 @@ function checkSpellEncode() {
         copyText();
     }
     window.scrollBy({
-        top: window.innerHeight,
+        top: 1000000,
         behavior: 'smooth'
     });
+
+    result.scrollBy({
+        top: 1000000,
+        behavior: 'smooth'
+    })
+
+    copyButton.innerHTML = "Copiar";
 }
 
 function copyText() {
-    const copiedText = document.querySelector(".text--copied");
     copyButton.addEventListener("click", () => {
-        copiedText.style.display = "block";
-        copiedText.innerHTML = "Texto copiado!";
+        copyButton.innerHTML = "Texto copiado!";
         navigator.clipboard.writeText(textOutput.innerHTML);
 
     })

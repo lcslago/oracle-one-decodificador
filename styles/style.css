@@ -2,7 +2,9 @@
 
 :root {
     --background-color: #F3F5FC;
+    --background-color-hover: #EFF1FA;
     --primary-color: #0A3871;
+    --primary-color-hover: #072B61;
     --secondary-color: #343A40;
 }
 
@@ -60,12 +62,22 @@ body {
     line-height: 1.2rem;
     padding: 2rem;
     border-radius: 24px;
+    cursor: pointer;
+}
+
+.main__buttons input:hover {
+    background-color: var(--primary-color-hover);
 }
 
 .main__buttons input:nth-child(2) {
     background-color: var(--background-color);
     color: var(--primary-color);
 }
+
+.main__buttons input:nth-child(2):hover {
+    background-color: var(--background-color-hover);
+}
+
 
 .main__output-warning {
     display: none;
@@ -90,6 +102,10 @@ body {
     line-height: 1.5rem;
 }
 
+.main__output-warning img {
+    display: none;
+}
+
 .invalid-characters {
     display: none;
 }
@@ -108,6 +124,7 @@ body {
 }
 
 .main__decryption-area p {
+    word-wrap: break-word;
     line-height: 2.3rem;
     color: var(--secondary-color);
 }
@@ -121,15 +138,129 @@ body {
     border-radius: 24px;
     background-color: white;
     color: var(--primary-color);
+    cursor: pointer;
+}
+
+.main__decryption-area .copy-button:hover {
+    background-color: var(--background-color-hover);
 }
 
 .main__output-text {
     font-size: 1.5rem;
 }
 
-.text--copied {
-    display: none;
-    text-align: center;
-    font-weight: 700;
-    color: var(--secondary-color);
+
+@media screen and (min-width: 768px) {
+    body {
+        padding: 0 2.5rem
+    }
+
+    .main__text-area {
+        height: 60vh;
+    }
+
+    .main__buttons {
+        flex-direction: row;
+    }
+
+    .main__buttons input {
+        width: 100%;
+    }
+
+    .main__decryption-area {
+        margin: 4rem 1rem 2.5rem 1rem;
+    }
+}
+
+@media screen and (min-width: 1366px) {
+    body {
+        display: flex;
+        justify-content: space-between;
+        padding: 0;
+    }
+
+    header {
+        margin: 2.5rem;
+    }
+
+    .header__logo {
+        padding: 0 2.75rem;
+    }
+
+    main {
+        display: flex;
+        flex-direction: column;
+        padding-left: 10rem;
+    }
+
+    body,
+    main {
+        height: 73vh;
+    }
+
+    .main__text-area {
+
+        margin: 0;
+    }
+
+    .main__warning,
+    .main__buttons {
+        margin-left: 0;
+        margin-right: 0;
+    }
+
+    .main__buttons input {
+        width: 328px;
+    }
+
+    .main__output-warning {
+        align-items: center;
+        justify-content: center;
+        gap: 1rem;
+    }
+
+    .main__output-warning,
+    .main__decryption-area {
+        margin: 2.5rem;
+        width: 350px;
+        height: 530px;
+    }
+
+    .main__output-warning p,
+    .main__output-warning h3 {
+        padding: 0 2rem;
+    }
+
+    .main__output-warning img {
+        display: block;
+        width: 300px;
+    }
+
+    .main__decryption-area {
+        padding: 2rem;
+        overflow-y: scroll;
+        justify-content: space-between;
+    }
+
+    .main__decryption-area .copy-button {
+        display: block;
+        margin-top: 2.5rem;
+    }
+
+}
+
+@media screen and (min-width:2560px) {
+    main {
+        display: flex;
+        flex-direction: column;
+        padding-left: 15rem;
+    }
+
+    .main__output-warning,
+    .main__decryption-area {
+        margin: 2.5rem 15rem;
+        width: 400px;
+        height: 944px;
+    }
+
 }

@@ -12,22 +12,28 @@
 </head>
 
 <body>
-    <header>
-        <img src="/assets/img/Vector.png" alt="logo da alura" class="header__logo">
-    </header>
-    <main>
-        <textarea class="main__text-area" id="text-area" cols="30" rows="10" placeholder="Digite seu texto"></textarea>
-        <div class="main__warning">
-            <img src="/assets/img/Warning.svg" alt="sinal de alerta">
-            <p>Apenas letras minúsculas e sem acento.</p>
-        </div>
+    <section class="input__section">
+        <header>
+            <img src="/assets/img/Vector.png" alt="logo da alura" class="header__logo">
+        </header>
+        <main>
+            <textarea class="main__text-area" id="text-area" cols="30" rows="10"
+                placeholder="Digite seu texto"></textarea>
+            <div class="main__warning">
+                <img src="/assets/img/Warning.svg" alt="sinal de alerta">
+                <p>Apenas letras minúsculas e sem acento.</p>
+            </div>
 
-        <div class="main__buttons">
-            <input type="submit" value="Criptografar" class="encryption-button">
-            <input type="submit" value="Descriptografar" class="decryption-button">
-        </div>
+            <div class="main__buttons">
+                <input type="submit" value="Criptografar" class="encryption-button">
+                <input type="submit" value="Descriptografar" class="decryption-button">
+            </div>
+        </main>
+    </section>
 
+    <section class="output__section">
         <div class="main__output-warning">
+            <img src="assets/img/words-not-found.png" alt="Pessoa procurando algo">
             <h3 class="warning">Nenhuma mensagem encontrada</h3>
             <p class="warning">Digite um texto que você deseja criptografar ou descriptografar.</p>
         </div>
@@ -37,25 +43,18 @@
             <p class="warning">Apenas letras minúsculas e sem acento.</p>
         </div>
 
-        <div class="text--copied">
-            <span></span>
-        </div>
-
         <div class="main__decryption-area">
             <p class="main__output-text">
                 Lorem ipsum dolor sit amet, consectetur adipiscing elit. Orci montes, sit et diam risus scelerisque
                 vitae est. Tortor
-                maecenas nunc ut laoreet. Eget diam mauris quam quisque ut eget fringilla sit elit. Libero, sodales duis
+                maecenas nunc ut laoreet. Eget diam mauris quam quisque ut eget fringilla sit elit. Libero, sodales
+                duis
                 fames id diam
                 feugiat aliquet non egestas.
             </p>
             <button class="copy-button">Copiar</button>
         </div>
-
-
-    </main>
-    <footer></footer>
-
+    </section>
     <script src="/scripts/encryption.js"></script>
 </body>
 
