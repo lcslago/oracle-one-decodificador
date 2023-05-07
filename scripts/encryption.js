@@ -35,11 +35,6 @@ function decrypt() {
 
 }
 
-// CRIAR UMA FUNÇÃO QUE IMPEÇA O USO DE PALAVRAS SEM VOGAIS 
-// TENTAR FAZER O OUTPUT SER VISUALMENTE IDENTICO AO INPUT 
-// CRIAR UMA FUNÇÃO QUE PERMITA APENAS CARACTERES UTF-8
-// CRIAR UMA FUNÇÃO QUE VERIFICA SE O TEXTO CONTÉM APENAS ESPAÇOS OU ENTERS
-
 const textOutput = document.querySelector(".main__output-text");
 
 function checkSpellEncode() {
@@ -48,13 +43,13 @@ function checkSpellEncode() {
 
     const warning = document.querySelector(".main__output-warning");
 
-    const charactersFilter = new RegExp(/[^a-z /\n/]/, 'g');
+    const charactersFilter = new RegExp(/[^a-z !?.,-/\n/]/, 'g');
 
     if (charactersFilter.test(plainText)) {
         warning.style.display = "none";
         result.style.display = "none";
         error.style.display = "flex";
-    } else if (plainText === "") {
+    } else if (plainText === "" || plainText.trim().length === 0) {
         result.style.display = "none";
         error.style.display = "none";
         warning.style.display = "flex";

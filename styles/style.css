@@ -110,6 +110,11 @@ body {
     display: none;
 }
 
+.warning-list {
+    list-style: square;
+    text-align: left;
+}
+
 .main__decryption-area {
     display: none;
     flex-direction: column;
@@ -121,6 +126,7 @@ body {
     border-radius: 32px;
     color: var(--secondary-color);
     box-shadow: 0px 24px 32px -8px rgba(0, 0, 0, 0.08);
+    white-space: pre-wrap;
 }
 
 .main__decryption-area p {
@@ -234,6 +240,12 @@ body {
     .main__output-warning img {
         display: block;
         width: 300px;
+    }
+
+    .warning-img {
+        width: 150px;
+        height: 150px;
+        margin-bottom: 1.5rem;
     }
 
     .main__decryption-area {
